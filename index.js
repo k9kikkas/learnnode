@@ -1,11 +1,24 @@
-let array = [1, 2, 3, 'chicken jockey', true, [1, 2, 3]];
-console.log(array);
-console.log(array[3]);
-console.log(array[5][1]);
-array[3] = 'Fuck you';
-console.log(array);
-console.log(array.length);
-array.push('new value');
-console.log(array);
-let text = array.join('urmom');
-console.log(text);
+let obj = {
+    name: 'Kierian',
+    age: 17,
+    sexuality: 'bi',
+    fruits: ['kiwi', 'lemon', 'cherry'],
+    cat: {
+        name: 'Carp',
+        age: 1,
+        gender: 'Male',
+    },
+    parentName: 'Freddy',
+    //parent-name: 'ash', not allowed because -
+    //2ash: 'ash:, not allowed to start with number
+    'parent-name': 'Phillip',
+    '2asd': 'ash',
+    'somethings': 'sadji',
+};
+
+console.log(obj);
+console.log(obj.name);
+console.log(obj.fruits[1]);
+console.log(obj.cat.name);
+console.log(obj['parent-name']);
+console.log(Object.keys(obj));
