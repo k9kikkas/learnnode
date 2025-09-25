@@ -1,37 +1,51 @@
-let bool = true;
-console.log(bool);
-bool = false;
-console.log(bool);
+let num = 10;
+if (num > 10) {
+    console.log('Bigger than 10');
+} else if (num === 10) {
+    console.log('Equal to 10');
+} else {
+    console.log('Smaller than 10');
+}
 
-bool = true && false; // AND - if true and true then true but everything else is false
-bool = false && true;
-bool = false && false;
-bool = true && true;
-console.log(bool);
+let day = new Date("2025-09-25").getDay();
+console.log(day);
 
-bool = true || false; // OR - if either of them is true then it true and if both true then true again and if none then false
-bool = false || true;
-bool = false || false;
-bool = true || true;
-console.log(bool);
+if (day === 1) {
+    console.log('Esmaspäev');
+} else if (day === 2) {
+    console.log('Teisipäev');
+} else if (day === 3) {
+    console.log('Kolmapäev');
+} else if (day === 4) {
+    console.log('Neiljapäev');
+} else if (day === 5 || day === 6) {
+    console.log('Pidupäev');
+} else if (day === 0) {
+    console.log('Pühapäev');
+} else {
+    console.log('Imelikpäev')
+}
 
-bool = !true; // NOT - if i say something is false then its false if i say something is not false its true
-console.log(bool);
-bool = !false;
-console.log(bool);
-
-bool = (true && false || true) && !(false || true && false); // this is what hell looks like
-console.log(bool);
-
-bool = 10 > 5;
-//jne
-bool = 10 == 10;
-bool = '10' == 10; // non strict will convert and check
-bool = '10' === 10; //strict will check if types match before values
-bool = 10 >= 10;
-bool = '10' != 10;
-bool = '10' !== 10;
-bool = [] == '';
-bool = [1, 2, 3] == 1;
-
-console.log(bool);
+switch (day) {
+    case 1:
+        console.log('Esmaspäev');
+        break;
+    case 2:
+        console.log('Teisipäev');
+        break;
+    case 3:
+        console.log('Kolmapäev');
+        break;
+    case 4:
+        console.log('Neljapäev');
+        break;
+    case 5:
+    case 6:
+        console.log('Pidupäev');
+        break;
+    case 0:
+        console.log('Pühapäev');
+        break;
+    default:
+        console.log('Imelikpäev');
+}
