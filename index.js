@@ -1,61 +1,37 @@
-function hello() {
-    console.log('hello...woorld');
-}
+let bool = true;
+console.log(bool);
+bool = false;
+console.log(bool);
 
-hello();
-hello();
+bool = true && false; // AND - if true and true then true but everything else is false
+bool = false && true;
+bool = false && false;
+bool = true && true;
+console.log(bool);
 
-function helloName(name) {
-    console.log(`Hello ${name}!`);
-};
+bool = true || false; // OR - if either of them is true then it true and if both true then true again and if none then false
+bool = false || true;
+bool = false || false;
+bool = true || true;
+console.log(bool);
 
-helloName('Marta');
-helloName('Kirke');
-helloName('Danchik');
-helloName('Robin');
+bool = !true; // NOT - if i say something is false then its false if i say something is not false its true
+console.log(bool);
+bool = !false;
+console.log(bool);
 
-function hi(name = 'who are you', age = 'what') {
-    console.log(`Hi ${name} you are ${age} years old`);
-}
-hi('Marta', 17);
-hi('Kirke', 21);
-hi('Danchik', 17);
-hi('Robin', 17);
-hi();
+bool = (true && false || true) && !(false || true && false); // this is what hell looks like
+console.log(bool);
 
-let sum = function (a, b) {
-    return a + b;
-}
+bool = 10 > 5;
+//jne
+bool = 10 == 10;
+bool = '10' == 10; // non strict will convert and check
+bool = '10' === 10; //strict will check if types match before values
+bool = 10 >= 10;
+bool = '10' != 10;
+bool = '10' !== 10;
+bool = [] == '';
+bool = [1, 2, 3] == 1;
 
-let answer = sum(4, 5);
-console.log(answer);
-console.log(sum(6, 10));
-sum(5, 6);
-
-let sub = (a, b) => {
-    return a - b;
-}
-console.log(sub(6, 10));
-
-let mult = (a, b) => a * b;
-console.log(mult(6, 10));
-
-let root = a => a * a;
-console.log(root(6, 10));
-
-let cool = () => console.log('cool');
-cool();
-
-let awesome = {
-    party: function () {
-        console.log('I say Disco You say Party');
-    },
-    cool: () => console.log('Disco Disco'),
-    nice() {
-        console.log('Party Party');
-    }
-};
-
-awesome.party();
-awesome.cool();
-awesome.nice();
+console.log(bool);
