@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
-    "serve": "webpack serve --mode development"
+    "serve": "webpack serve --mode development",
+    "deploy": "npm run build && surge ./dist sturgeon-surgeon.surge.sh"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +18,7 @@
   "homepage": "https://github.com/KirkeKadarik/learnnode#readme",
   "dependencies": {
     "bootstrap": "^5.3.8",
+    "surge": "^0.24.6",
     "webpack": "^5.101.3"
   },
   "devDependencies": {
