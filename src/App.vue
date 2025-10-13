@@ -1,20 +1,22 @@
 <script setup>
 import { computed, ref } from 'vue';
+import ItemList from './ItemList.vue';
 
 let newItem = ref('');
 let i = 1;
 let items = ref([
-  {id: i++, name:'Leib', isDone: false},
-  {id: i++, name:'Vorst', isDone: true},
-  {id: i++, name:'Krõps', isDone: true},
-  {id: i++, name:'Muna', isDone: false},
+  {id: i++, name:'Milky Way šokolaad', isDone: false},
+  {id: i++, name:'Juustu-Sibula Leib', isDone: true},
+  {id: i++, name:'Sour cream & onion Pringles', isDone: true},
+  {id: i++, name:'Green edition Red bull', isDone: false},
 ]);
 let code = ref(404);
-
-function addItem() {
-  items.value.push({id: i++, name: newItem.value, isDone: false});
-  newItem.value = "";
+function addItem(){
+  if(newItem.value.trim() !== '') {
+    items.value.push({id: i++, name: newItem.value.trim(), isDone: false});
+  }
 }
+newItem.value= "";
 
 let doneItems = computed(() => {
   return items.value.filter(item => item.isDone);
@@ -29,12 +31,7 @@ let toDoItems = computed(() => {
     <div class="content">
       <div class="field has-addons">
         <div class="control is-expanded">
-          <input
-            v-model="newItem"
-            class="input"
-            type="text"
-            placeholder="Add item"
-          />
+          <input v-model="newItem" class="input" type="text" placeholder="Add item" @keydown.enter="addItem">
         </div>
         <div class="control">
           <button class="button is-info" @click="addItem">Add item</button>
@@ -42,29 +39,9 @@ let toDoItems = computed(() => {
       </div>
       <h1>{{ newItem }}</h1>
 
-      <h1>All Items</h1>
-      <ul>
-        <li v-for="item in items" :key="item.id">
-          <input type="checkbox" v-model="item.isDone"></input>
-          {{item.name}}
-        </li>
-      </ul>
-
-      <h1>Done Items</h1>
-      <ul>
-        <li v-for="item in doneItems" :key="item.id">
-          <input type="checkbox" v-model="item.isDone"></input>
-          {{item.name}}
-        </li>
-      </ul>
-
-      <h1>toDo Items</h1>
-      <ul>
-        <li v-for="item in toDoItems" :key="item.id">
-          <input type="checkbox" v-model="item.isDone"></input>
-          {{item.name}}
-        </li>
-      </ul>
+      <ItemList :items="items" title="All Items"></ItemList>
+      <ItemList :items="doneItems" title="Done Items"></ItemList>
+      <ItemList :items="toDoItems" title="ToDo Items"></ItemList>
 
       <input
         v-model="code"
