@@ -1,14 +1,14 @@
 <script setup>
 import { ref } from 'vue';
 import Tabs from './components/Tabs.vue';
-let tabTitles = ['Pictures', 'Music', 'Videos', 'Documents', 'Games'];
+import Modals from './pages/Modals.vue';
+import ToDo from './pages/ToDo.vue';
+
+let tabTitles = ['ToDo', 'Modals'];
 let tabContent = [
-    'Some cool Pictures',
-    'yumi take my hat!!',
-    'awesome saurce',
-    'is this lego?',
-    'jim welsh',
-]
+    ToDo,
+    Modals,
+];
 let tabActive = ref(0);
 
 function setActive(key) {
@@ -17,8 +17,6 @@ function setActive(key) {
 
 </script>
 <template>
-    <Tabs :titles="tabTitles" @change="setActive"></Tabs>
-    <div class="content">
-        <h1>{{ tabContent[tabActive] }}</h1>
-    </div>
+<Tabs :titles="tabTitles" @change="setActive"></Tabs>
+<component :is="tabContent[tabActive]"></component>
 </template>
