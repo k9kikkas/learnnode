@@ -22,38 +22,12 @@ async function getCharacters(page) {
         }
     });
     console.log(res);
-    characters.value = res.data.results;
+    characters.value.push (...res.data.results);
     info.value = res.data.info;
 }
  
-await getCharacters(currentPage.value)
-function generatePages(count, current) {
-    let pages = [];
-    for (let i = 1; i <= 3; i++) {
-        pages[i] = i;
-    }
-    if (current > 2) {
-        pages.push('...');
-    }
-    if (current > 2 && current < count - 1) {
- 
-        for (let i = current - 2; i <= current + 2; i++) {
-            pages[i] = i
-        }
-    }
-    if (current < count - 2) {
-        pages.push('...');
-    }
-    for (let i = count - 2; i <= count; i++) {
- 
-        pages[i] = i;
-    }
- 
- 
-    return pages.filter(page => page);
-}
-console.log(generatePages(42, 10));
- 
+await getCharacters(currentPage.value);
+
 let timeout;
  
 async function getPage(page) {
@@ -63,6 +37,14 @@ clearTimeout(timeout);
         await getCharacters(currentPage.value);
     }, 1000);
 }
+
+document.addEventListener('scroll', function() {
+    if(window.innerHeight + window.scrollY > document.body.clientHeight - 100) {
+        getPage(currentPage.value + 1);
+    }
+});
+
+
 </script>
 <template>
  
