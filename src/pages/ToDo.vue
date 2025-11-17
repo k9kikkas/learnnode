@@ -27,6 +27,7 @@ let toDoItems = computed(() => {
 
 </script>
 <template>
+  
   <div class="container">
     <div class="content">
       <div class="field has-addons">
