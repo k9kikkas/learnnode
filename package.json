@@ -18,9 +18,13 @@
   },
   "homepage": "https://github.com/KirkeKadarik/learnnode#readme",
   "dependencies": {
+    "boxen": "^8.0.1",
     "bulma": "^1.0.4",
+    "cheerio": "^1.1.2",
+    "inquirer": "^12.11.1",
     "keypress": "^0.2.1",
     "leaflet": "^1.9.4",
+    "md5": "^2.3.0",
     "surge": "^0.24.6",
     "vue-router": "^4.6.3",
     "webpack": "^5.101.3",
