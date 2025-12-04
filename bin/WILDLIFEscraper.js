@@ -10,20 +10,19 @@ if(!fs.existsSync(cacheDir)){
 
 const BASE_URL = 'https://www.wildelifecomic.com';
 let url = BASE_URL + '/comic';
-for(let i = 0; i<10; i++){
+for(let i = 1536; i<1546; i++){
     let body;
     if(fs.existsSync(cacheDir + `/${i}.html`)){
         body = fs.readFileSync(cacheDir + `/${i}.html`);
     } else {
         await sleep(1000);    
-        let res = await fetch(url);    
+        let res = await fetch(url + `/${i}`);    
         body = await res.text();
         fs.writeFileSync(cacheDir + `/${i}.html`, body);
     }
 
     const $ = cheerio.load(body);
-    let img = $('cc-comic>img');
-    console.log(img.attr('src'));
-    console.log(img.attr('alt'));
+    let img = $('#cc-comicbody img');
+    console.log( img.attr('src'));
     console.log(img.attr('title'));
 }
